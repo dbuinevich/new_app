@@ -1,0 +1,2 @@
+class BaracholkaController < ApplicationController
+end
