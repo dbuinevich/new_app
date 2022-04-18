@@ -1,0 +1,12 @@
+<h1 class="text-center"> Add Brand To List</h1>
+<%= form_for @brand do |f| %>
+
+    <div class="field text-center">
+    <%= f.label :brand, 'Brand' %><br />
+      <%= f.text_field :brand, autofocus: true %>
+    </div>
+
+    <div class="actions text-center">
+      <%= f.submit "Add Brand" %>
+    </div>
+<% end %>

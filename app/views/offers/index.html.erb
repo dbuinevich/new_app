@@ -1,0 +1,23 @@
+<h1 class="text-center">All Offers</h1>
+<div class="grid grid-cols-5 mx-20 gap-20">
+<% @offers.each do |offer| %>
+  <div class="text-center"> <%= link_to offer.brand, "/offers/#{offer.id}" %> <%= link_to offer.model, "/offers/#{offer.id}" %> <br>
+  <%= link_to image_tag(offer.image[0].url), "/offers/#{offer.id}"  %> 
+  <% unless current_user.blank? %>
+    <% if can? :manage, offer %>
+      <%= button_to "Delete", offer, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>
+      <%= link_to "Edit", edit_offer_path(offer) %>
+      <% flash.each do |type, msg| %>
+        <div>
+          <%= msg %>
+        </div>
+      <% end %>
+    <% end %>
+    
+    <% end %>
+    </div>
+  <% end %>
+  </div>
+
+  
+<%= will_paginate @offers %>

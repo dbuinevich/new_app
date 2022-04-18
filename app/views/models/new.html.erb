@@ -1,0 +1,17 @@
+<h1 class="text-center"> Add Model To Brand</h1>
+<%= form_for @brand do |f| %>
+
+    <div class="field text-center">
+    <%= f.label :brand, 'Brand' %><br />
+      <%= f.collection_select(:model, :brand_id, Brand.all, :id) %>
+    </div>
+
+    <div class="field text-center">
+    <%= f.label :model, 'Brand' %><br />
+      <%= f.text_field :model, autofocus: true %>
+    </div>
+
+    <div class="actions text-center">
+      <%= f.submit "Add Model" %>
+    </div>
+<% end %>

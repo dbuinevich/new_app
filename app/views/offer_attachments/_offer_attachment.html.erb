@@ -1,0 +1,22 @@
+<div id="<%= dom_id offer_attachment %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Offer:</strong>
+    <%= offer_attachment.offer_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Image:</strong>
+    <%= offer_attachment.image %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Json:</strong>
+    <%= offer_attachment.json %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this offer attachment", offer_attachment, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this offer attachment', edit_offer_attachment_path(offer_attachment), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

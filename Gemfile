@@ -15,6 +15,12 @@ gem 'pg', '~> 1.2', '>= 1.2.3'
 
 gem 'devise'
 
+gem 'carrierwave'
+
+gem 'will_paginate', '~> 3.3'
+
+gem 'cancancan'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", "~> 5.0"
 

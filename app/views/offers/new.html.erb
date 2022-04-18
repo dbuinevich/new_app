@@ -1,0 +1,68 @@
+<h2 class="text-center">Create Your Offer</h2>
+
+<%= form_for @offer do |f| %>
+
+  <div class="field text-center">
+  <%= f.label :brand, 'Brand' %><br />
+    <%= f.text_field :brand, autofocus: true %>
+  </div>
+
+  <div class="field text-center">
+  <label>Model</label><br />
+    <%= f.text_field :model, autofocus: true %>
+  </div>
+
+  <div class="field text-center">
+  <label>Year</label><br />
+    <%= f.number_field :year, autofocus: true %>
+  </div>
+
+  <div class="field text-center">
+  <label>Engine Type</label><br />
+    <%= f.text_field :engine_type, autofocus: true %>
+  </div>
+
+  <div class="field text-center">
+  <label>Drive Unit</label><br />
+    <%= f.text_field :drive_unit, autofocus: true %>
+  </div>
+
+  <div class="field text-center">
+  <label>Transmission</label><br />
+    <%= f.text_field :transmission, autofocus: true %>
+  </div>
+
+  <div class="field text-center">
+  <label>Engine Capacity (cc)</label><br />
+    <%= f.number_field :engine_capacity, autofocus: true %>
+  </div>
+
+  <div class="field text-center">
+  <label>Color</label><br />
+    <%= f.text_field :color, autofocus: true %>
+  </div>
+
+  <div class="field text-center">
+  <label>Condition</label><br />
+    <%= f.text_area :condition, autofocus: true %>
+  </div>
+
+  <div class="field text-center">
+  <label>Photo4ki</label><br />
+  <%= f.file_field :image, multiple: true %>
+  </div>
+
+  <div class="field text-center">
+  <label>Price ($)</label><br />
+    <%= f.number_field :price, autofocus: true %>
+  </div>
+
+  <div class="field text-center">
+  <label>Contacts</label><br />
+    <%= f.text_area :contacts, autofocus: true %>
+  </div>
+
+  <div class="actions text-center">
+    <%= f.submit "Create Offer" %>
+  </div>
+<% end %>

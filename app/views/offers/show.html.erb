@@ -1,0 +1,10 @@
+<h1 class="text-center"> <%= @offer.brand %> <%= @offer.model %></h1>
+
+<div>
+  <% @offer.image.each do |img| %>
+    <%= image_tag img.url, style: "display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%" %>
+  <% end %>
+</div>

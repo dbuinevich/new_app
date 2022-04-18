@@ -1,0 +1,2 @@
+class OfferAttachment < ApplicationRecord
+end
