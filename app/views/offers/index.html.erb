@@ -1,8 +1,10 @@
 <h1 class="text-center">All Offers</h1>
 <div class="grid grid-cols-5 mx-20 gap-20">
 <% @offers.each do |offer| %>
-  <div class="text-center"> <%= link_to offer.brand, "/offers/#{offer.id}" %> <%= link_to offer.model, "/offers/#{offer.id}" %> <br>
-  <%= link_to image_tag(offer.image[0].url), "/offers/#{offer.id}"  %> 
+  <div class="text-center"> <%= link_to offer.brand, offer_path(offer) %> <%= link_to offer.model, offer_path(offer) %> <br>
+  <% if offer.image[0] != nil %>
+    <%= link_to image_tag(offer.image[0].url), offer_path(offer)  %> 
+  <% end %>
   <% unless current_user.blank? %>
     <% if can? :manage, offer %>
       <%= button_to "Delete", offer, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>

@@ -48,6 +48,14 @@ class OffersController < ApplicationController
     end
   end
 
+  def models
+    @target = params[:target]
+    @models = Model.find_by(params[brand_id: :brand_id])
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
 
 
   private

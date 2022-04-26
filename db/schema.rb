@@ -68,5 +68,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_17_211418) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
-  add_foreign_key "models", "brands"
 end

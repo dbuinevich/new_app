@@ -197,9 +197,12 @@ GEM
       thor (~> 1.0)
       zeitwerk (~> 2.5)
     rake (13.0.6)
+    redis (4.6.0)
     regexp_parser (2.2.1)
     reline (0.3.1)
       io-console (~> 0.5)
+    requestjs-rails (0.0.9)
+      rails (>= 6.0.0)
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
@@ -266,6 +269,8 @@ DEPENDENCIES
   pry-byebug (~> 3.9)
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.2)
+  redis (~> 4.0)
+  requestjs-rails
   selenium-webdriver
   sprockets-rails
   stimulus-rails

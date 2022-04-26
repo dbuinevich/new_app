@@ -6,14 +6,14 @@ class ModelsController < ApplicationController
   end
 
   def new
-    @brand = Brand.new
+    @model = Model.new
   end
 
   def create
-    @brand = Brand.new(brand_params)
-    if @brand.save
-    #   redirect_to @brand
-    redirect_to @brands
+    @model = Model.new(model_params)
+    if @model.save!
+      
+      redirect_to brands_path
     else
       render :new
     end
@@ -21,7 +21,7 @@ class ModelsController < ApplicationController
 
   private
 
-  def brand_params
-    params.require(:brand).permit(:brand)
+  def model_params
+    params.require(:model).permit(:brand_id, :model)
   end
 end
