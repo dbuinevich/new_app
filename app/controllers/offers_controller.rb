@@ -50,7 +50,7 @@ class OffersController < ApplicationController
 
   def models
     @target = params[:target]
-    @models = Model.where(params[brand_id: :brand_id])
+    @models = Model.where(brand_id: params[:brand_id])
     respond_to do |format|
       format.turbo_stream
     end

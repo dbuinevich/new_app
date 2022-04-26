@@ -5,7 +5,6 @@ import { get } from "@rails/request.js"
 export default class extends Controller {
   static targets = [ "modelSelect" ]
   change(event) {
-    console.log("sjwuwu")
     let brand_id = event.target.selectedOptions[0].value
     let target = this.modelSelectTarget.id
 
