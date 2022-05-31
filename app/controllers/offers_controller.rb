@@ -28,7 +28,6 @@ class OffersController < ApplicationController
        
   def edit
     @offer = Offer.find(params[:id])
-  
   end
 
   def update
@@ -61,7 +60,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:brand, :model, :year, :engine_type, :drive_unit, :transmission, :engine_capacity, :color, 
+    params.require(:offer).permit(:brand_id, :model_id, :year, :engine_type, :drive_unit, :transmission, :engine_capacity, :color, 
     :condition, :price, :contacts, {image: []}).merge({user_id: current_user.id})
   end
 end

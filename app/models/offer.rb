@@ -1,5 +1,5 @@
 class Offer < ApplicationRecord
-#   has_many :offer_attachments
-#   accepts_nested_attributes_for :offer_attachments
+  belongs_to :model
+  belongs_to :brand
   mount_uploaders :image, ImageUploader
 end

@@ -11,15 +11,7 @@
   </head>
 
   <body>
-  <!-- This example requires Tailwind CSS v2.0+ -->
-  <!--
-    This example requires updating your template:
   
-    ```
-    <html class="h-full bg-gray-100">
-    <body class="h-full">
-    ```
-  -->
   <div class="min-h-full">
     <nav class="bg-gray-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -27,7 +19,7 @@
           <div class="flex items-center">
             <div class="flex-shrink-0">
               <a href='/offers'>
-                <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow">
+                <img class="h-12 w-12" src="https://img.icons8.com/color/344/car--v1.png" alt="Baracholka">
               </a>
             </div>
             <div class="hidden md:block">
@@ -37,6 +29,7 @@
                   <% unless current_user.admin  %>
                     <%= link_to "Add Your Offer", new_offer_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                   <% else %>
+                  <%= link_to "Manage Users", users_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                   <%= link_to "Manage Brands/Models", brands_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                   <% end %>
                 <% else %>

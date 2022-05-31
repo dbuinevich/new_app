@@ -1,0 +1,10 @@
+<div>
+  <h1 class="font-bold text-4xl">Users</h1>
+  <h2> <%= link_to "Add New User", new_user_path %> </h2>
+  <% @users.each do |user| %>
+    <%= user.first_name %><br/>
+    <%= link_to user.email, user_path(user) %><br/>
+    <%= button_to "Delete", user, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>
+    <%= link_to "Edit", edit_user_path(user) %>
+  <% end %>
+</div>

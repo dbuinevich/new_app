@@ -1,7 +1,7 @@
-<h1 class="text-center">All Offers</h1>
+<h1 class="text-center text-[32px] font-serif">All Offers</h1>
 <div class="grid grid-cols-5 mx-20 gap-20">
 <% @offers.each do |offer| %>
-  <div class="text-center"> <%= link_to offer.brand, offer_path(offer) %> <%= link_to offer.model, offer_path(offer) %> <br>
+  <div class="text-center"> <p class="forn-serif hover:bg-sky-600"><%= link_to offer.brand.brand, offer_path(offer) %> <%= link_to offer.model.model, offer_path(offer) %> </p> <br>
   <% if offer.image[0] != nil %>
     <%= link_to image_tag(offer.image[0].url), offer_path(offer)  %> 
   <% end %>
@@ -22,4 +22,6 @@
   </div>
 
   
-<%= will_paginate @offers %>
+<div class="digg_pagination">
+  <%= will_paginate @offers, :container => false %>
+</div>
