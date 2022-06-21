@@ -19,6 +19,25 @@ class ModelsController < ApplicationController
     end
   end
 
+  def edit
+    @model = Model.find(params[:id])
+  end
+
+  def update
+    @model = Model.find(params[:id])
+    if @model.update(model_params)
+      redirect_to brand_path(brand), flash: { notice: "Your model has been updated" }
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @model = Model.find(params[:id])
+    @model.destroy
+      redirect_to brand_path(brand), flash: { notice: "Your model has been deleted" }
+  end
+
   private
 
   def model_params

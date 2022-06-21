@@ -1,10 +1,34 @@
-<div>
-  <h1 class="font-bold text-4xl">Users</h1>
-  <h2> <%= link_to "Add New User", new_user_path %> </h2>
+<div class="grid justify-items-end grid-cols-[3fr_2fr] w-2/3 mx-auto">
+  <h1 class="font-serif text-center text-6xl" style="margin-right: 86px">Users</h1>
+  <h2 class="text-center w-fit justify-self-end cursor-pointer bg-green-500 text-xl hover:bg-green-700 text-white font-bold py-2 px-4 mr-7 rounded my-auto rounded-lg"><%= link_to "Add New User", new_user_path %></h2>
+</div>
+<div class="grid w-2/3 mx-auto grid-cols-[1fr_1fr_2fr_1fr_1fr] my-5 gap-10">
+  <div class="w-fit font-semibold text-xl">First name</div>
+  <div class="w-fit font-semibold text-xl">Last name</div>
+  <div class="w-fit mx-auto font-semibold text-xl">Email</div>
+  <div class="w-fit font-semibold text-xl">Phone number</div>
+  <div class="w-fit mx-auto font-semibold text-xl">Actions</div>
   <% @users.each do |user| %>
-    <%= user.first_name %><br/>
-    <%= link_to user.email, user_path(user) %><br/>
-    <%= button_to "Delete", user, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>
-    <%= link_to "Edit", edit_user_path(user) %>
+  <div class="self-center text-xl"><%= user.first_name %></div>
+  <div class="self-center text-xl"><%= user.last_name %></div>
+  <div class="self-center text-xl justify-self-center"><%= link_to user.email, user_path(user) %></div>
+  <div class="self-center text-xl"><%= user.phone_num %></div>
+  <div class="self-center text-xl grid mx-auto grid-cols-[1fr_1fr] my-5 gap-10">
+    <div
+      class="actions w-min text-xl bg-white hover:bg-red-500 hover:text-white cursor-pointer text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow p-1"
+    >
+      <%= button_to "Delete", user, method: :delete, form: {data:
+      {turbo_confirm: 'Are you sure?'}} %>
+    </div>
+    <div
+      class="actions w-min text-xl bg-white hover:bg-amber-400/50 hover:text-black text-gray-800 py-2 px-7 border border-gray-400 rounded shadow p-1"
+    >
+      <%= link_to "Edit", edit_user_path(user) %>
+    </div>
+  </div>
   <% end %>
+</div>
+
+<div class="digg_pagination text-center" style="margin-right: 60px">
+  <%= will_paginate @offers, :container => false %>
 </div>

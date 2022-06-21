@@ -1,0 +1,15 @@
+<h1 class="text-center font-serif text-6xl"> Edit Brand</h1>
+<%= form_for @brand do |f| %>
+  <div class="field w-fit mx-auto mt-5 text-center">
+    <div class="font-bold text-2xl">
+      <%= f.label :brand, 'Brand' %><br />
+    </div>
+    <div class="border-2 border-fuchsia-600 mt-1 rounded">
+      <%= f.text_field :brand, autofocus: true %>
+    </div>
+
+    <div class="actions mt-5 text-xl text-center w-fit mx-auto cursor-pointer bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+      <%= f.submit "Update Brand" %>
+    </div>
+  </div>
+<% end %>

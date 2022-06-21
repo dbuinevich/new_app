@@ -10,49 +10,48 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-  
+  <body class="bg-gray-100">
   <div class="min-h-full">
     <nav class="bg-gray-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-          <div class="flex items-center">
+        
             <div class="flex-shrink-0">
               <a href='/offers'>
-                <img class="h-12 w-12" src="https://img.icons8.com/color/344/car--v1.png" alt="Baracholka">
+                <img class="h-20 w-20" src="https://img.icons8.com/color/344/car--v1.png" alt="Baracholka">
               </a>
             </div>
-            <div class="hidden md:block">
-              <div class="ml-10 flex items-baseline space-x-4">
+            
+              <div class="ml-10 flex items-center space-x-4">
+                <%= link_to "All Offers", offers_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                 <% if user_signed_in? %>
-                  <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                  
                   <% unless current_user.admin  %>
                     <%= link_to "Add Your Offer", new_offer_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
+                    <%= link_to "My Profile", my_profile_path(current_user), class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"%>
                   <% else %>
                   <%= link_to "Manage Users", users_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                   <%= link_to "Manage Brands/Models", brands_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                   <% end %>
+                  <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
                 <% else %>
                   <%= link_to "Sign Up", new_user_registration_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
   
                   <%= link_to "Sign In", new_user_session_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
 
                 <% end %>
-                <%= link_to "All Offers", offers_path, class: "text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" %>
 
                 
               </div>
-            </div>
+           </div>
           </div>
           </nav>
           </div>
         
     <main>
-        <!-- Replace with your content -->
         <div class="px-4 py-6 sm:px-0">
         <%= yield %>
         </div>
-        <!-- /End replace -->
       </div>
     </main>
   

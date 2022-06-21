@@ -1,12 +1,15 @@
-<h1 class="text-center"> Add Brand To List</h1>
+<h1 class="text-center font-serif text-6xl"> Add Brand To List</h1>
 <%= form_for @brand do |f| %>
-
-    <div class="field text-center">
-    <%= f.label :brand, 'Brand' %><br />
+  <div class="field w-fit mx-auto mt-5 text-center">
+    <div class="font-bold text-2xl">
+      <%= f.label :brand, 'Brand' %><br />
+    </div>
+    <div class="border-2 border-fuchsia-600 mt-1 rounded">
       <%= f.text_field :brand, autofocus: true %>
     </div>
 
-    <div class="actions text-center">
+    <div class="actions mt-5 text-xl text-center w-fit mx-auto cursor-pointer bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
       <%= f.submit "Add Brand" %>
     </div>
+  </div>
 <% end %>

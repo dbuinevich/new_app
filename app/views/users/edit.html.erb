@@ -1,46 +1,46 @@
-<h2 class="text-center">Edit User</h2>
+<h2 class="text-center text-[32px] font-serif">Edit User</h2>
 
-<%= form_for @user, url: edit_user_path(@user) do |f| %>
+<%= form_for @user, url: users_create_path do |f| %>
 
-  <div class="field text-center">
+  <div class="field text-center mb-2">
     <label>First name</label><br />
     <%= f.text_field :first_name, autofocus: true, autocomplete: "name" %>
   </div>
 
-  <div class="field text-center">
+  <div class="field text-center mb-2">
   <label>Last name</label><br />
     <%= f.text_field :last_name, autofocus: true, autocomplete: "surname" %>
   </div>
 
-  <div class="field text-center">
+  <div class="field text-center mb-2">
   <label>Phone number</label><br />
     <%= f.text_field :phone_num, autofocus: true, autocomplete: "telephone number" %>
   </div>
 
-  <div class="field text-center">
+  <div class="field text-center mb-2">
   <label>Email</label><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field text-center">
-    <label>Password</label><br/>
+  <div class="field text-center mb-2">
+    <label>Password</label><br />
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+    <% end %>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field text-center">
+  <div class="field text-center mb-2">
     <label>Password confirmation</label><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="field text-center">
+  <div class="field text-center mb-2">
     <label>Admin?</label><br />
     <%= f.check_box :admin, {value: true} %>
   </div>
 
-  <div class="actions text-center">
+  <div class="actions text-center bg-transparent hover:bg-blue-500 text-blue-700 hover:text-white py-2 w-fit mx-auto px-5 border border-blue-500 hover:border-transparent rounded">
     <%= f.submit "Update User" %>
   </div>
 <% end %>

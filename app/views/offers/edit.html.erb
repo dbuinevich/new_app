@@ -1,68 +1,73 @@
-<h1 class="text-center"> Edit Your Offer </h1>
+<h2 class="text-center text-[32px] font-serif">Edit Offer</h2>
 
-<%= form_for @offer do |f| %>
+<div class="my-0 mx-auto w-1/2">
+  <%= form_for @offer do |f| %>
 
-    <div class="field text-center">
-    <%= f.label :brand, 'Brand' %><br />
-      <%= f.text_field :brand, autofocus: true %>
+    <div data-controller="brand">
+      <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+        <label class="justify-self-end self-center">Brand</label>
+        <%= f.select :brand_id, Brand.all.collect {|p| [ p.brand, p.id ] }, {include_blank: true}, { data: { action: "change->brand#change" }} %>
+
+      </div>
+
+      <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+        <label class="justify-self-end self-center">Model</label>
+        <%= f.select :model_id, [], {}, { data: { brand_target: "modelSelect" }} %>
+      </div>
     </div>
-  
-    <div class="field text-center">
-    <label>Model</label><br />
-      <%= f.text_field :model, autofocus: true %>
-    </div>
-  
-    <div class="field text-center">
-    <label>Year</label><br />
+
+    <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+    <label class="justify-self-end self-center">Year</label>
       <%= f.number_field :year, autofocus: true %>
     </div>
-  
-    <div class="field text-center">
-    <label>Engine Type</label><br />
+
+    <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+    <label class="justify-self-end self-center">Engine Type</label>
       <%= f.text_field :engine_type, autofocus: true %>
     </div>
-  
-    <div class="field text-center">
-    <label>Drive Unit</label><br />
+
+    <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+    <label class="justify-self-end self-center">Drive Unit</label>
       <%= f.text_field :drive_unit, autofocus: true %>
     </div>
-  
-    <div class="field text-center">
-    <label>Transmission</label><br />
+
+    <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+    <label class="justify-self-end self-center">Transmission</label>
       <%= f.text_field :transmission, autofocus: true %>
     </div>
-  
-    <div class="field text-center">
-    <label>Engine Capacity (cc)</label><br />
+
+    <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+    <label class="justify-self-end self-center">Engine Capacity (cc)</label>
       <%= f.number_field :engine_capacity, autofocus: true %>
     </div>
-  
-    <div class="field text-center">
-    <label>Color</label><br />
+
+    <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+    <label class="justify-self-end self-center">Color</label>
       <%= f.text_field :color, autofocus: true %>
     </div>
-  
-    <div class="field text-center">
-    <label>Condition</label><br />
+
+    <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+    <label class="justify-self-end self-center">Condition</label>
       <%= f.text_area :condition, autofocus: true %>
     </div>
-  
-    <div class="field text-center">
-    <label>Photo4ki</label><br />
+
+    <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+    <label class="justify-self-end self-center">Photo4ki</label>
     <%= f.file_field :image, multiple: true %>
     </div>
-  
-    <div class="field text-center">
-    <label>Price ($)</label><br />
+
+    <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+    <label class="justify-self-end self-center">Price ($)</label>
       <%= f.number_field :price, autofocus: true %>
     </div>
-  
-    <div class="field text-center">
-    <label>Contacts</label><br />
+
+    <div class="field text-center my-4 mx-12 grid grid-cols-[1fr_2fr] self-center gap-10">
+    <label class="justify-self-end self-center">Contacts</label>
       <%= f.text_area :contacts, autofocus: true %>
     </div>
-  
-    <div class="actions text-center">
+
+    <div class="text-center mx-auto mb-3 actions w-fit bg-green-500 hover:bg-green-700 text-white cursor-pointer font-semibold py-2 px-4 border border-gray-400 rounded shadow p-1">
       <%= f.submit "Update Offer" %>
     </div>
   <% end %>
+</div>

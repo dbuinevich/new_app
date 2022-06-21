@@ -1,9 +1,13 @@
 class ApplicationController < ActionController::Base
+
+
     private
   
-    # Overwriting the sign_out redirect path method
-  def after_sign_out_path_for(resource_or_scope)
-    new_user_session_path
-  end
+
+
+  # def current_user
+  #   @current_user ||= session[:current_user_id] && User.find_by_id(session[:current_user_id]) 
+  # end
+  # helper_method :current_user
 
 end

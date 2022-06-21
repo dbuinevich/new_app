@@ -1,0 +1,21 @@
+<h1 class="text-center font-serif text-6xl"><%= @brand.brand %></h1>
+<% @models.each do |model| %>
+  <div class="text-center">
+    
+    <% if can? :manage, model %>
+      
+      <div class="grid justify-items-center mx-auto grid-cols-[1fr] my-4 gap-1">
+    
+        <div class="w-fit font-semibold text-2xl self-center"><%= model.model %></div>
+    <div class="grid mx-auto grid-cols-[1fr_1fr] my-5 gap-10">
+    <div class="w-min bg-white hover:bg-amber-400/50 hover:text-black text-gray-800 py-2 px-7 border border-gray-400 rounded shadow p-1">
+        <%= link_to "Edit", edit_model_path(model) %>
+    </div>
+    <div class="actions w-min bg-white hover:bg-red-500 hover:text-white text-gray-800 py-2 px-4 border border-gray-400 rounded shadow">
+        <%= button_to "Delete", model, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}} %>
+    </div>
+    </div>
+    </div>
+    <% end %>
+  </div>
+<% end %>
