@@ -6,4 +6,13 @@ class Offer < ApplicationRecord
   validates_numericality_of :engine_capacity, less_than: 10000, only_integer: true
   validates_numericality_of :price
   belongs_to :user
+  validates :year, presence: true
+  validates :engine_type, presence: true
+  validates :drive_unit, presence: true
+  validates :transmission, presence: true
+  validates :engine_capacity, presence: true
+  validates :color, presence: true
+  validates :condition, presence: true
+  validates :price, presence: true
+  validates :contacts, presence: true
 end

@@ -9,11 +9,15 @@ class Ability
         can :manage, :all
         can :manage, User
         cannot :create, Offer
+      elsif user.id == nil
+        can :read, Offer
+        cannot :create, Offer
       else
         can :read, Offer
         can :manage, Offer, user_id: user.id
         cannot :manage, Brand
         cannot :manage, Model
+        
       end
     #
     # The first argument to `can` is the action you are giving the user
