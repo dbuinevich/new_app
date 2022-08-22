@@ -7,16 +7,12 @@ class OffersController < ApplicationController
     
   def new
     @offer = Offer.new
-    # @offer_attachment = @offer.offer_attachments.build
   end
 
   def create
     @offer = Offer.new(offer_params)
     if !@offer.image.empty?
       if @offer.save
-      #   params[:offer_attachments]['image'].each do |a|
-      #     @offer_attachment = @offer.offer_attachments.create!(:image => a,     :offer_id => @offer.id)
-      #   end
         redirect_to @offer
       else
         render :new
@@ -43,7 +39,6 @@ class OffersController < ApplicationController
 
   def destroy
     @offer = Offer.find(params[:id])
-    # if current_user.id == @offer.user_id
     if can? :manage, @offer
       @offer.destroy
       redirect_to offers_path, flash: { notice: "Your offer has been deleted" }

@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'users/index'
   devise_scope :user do
     get "/my_profile" => "registrations#show"
   end
@@ -19,7 +18,6 @@ Rails.application.routes.draw do
     end
   end
   
-  resources :brands, :models
-  resources :users
+  resources :brands, :models, :users
   root to: "baracholka#index"
 end

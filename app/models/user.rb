@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   scope :regular_users, -> { where(admin: false) }
   scope :admin_users, -> { where(admin: true) }
   devise :database_authenticatable, :registerable,
